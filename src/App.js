@@ -10,18 +10,27 @@ function App() {
     setText(e.currenTarjet.value)
   }
 
+  let agregar = () => {
+    setList([...list, {title: text, value: false}])
+    setText("")
+  }
+
   return (
     <div className="App">
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input 
         value={text}
         onChange={actualizar}
         type="text" 
         placeholder="Escriba aquí.." />
-        <button>Añadir</button>
+        <button onClick={agregar}>Añadir</button>
         <button>Reset</button>
       </form>
-      <ul></ul>
+      <ul>
+        {list.map((elemento) => {
+          return <li>{elemento.title}</li>
+        } )}
+      </ul>
     </div>
   );
 }
