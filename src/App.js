@@ -30,7 +30,7 @@ function App() {
   let handleEdit = (newList) => {
     setList(
       list.map((oldList) => {
-        if (newList.id !== oldList.id) return list;
+        if (newList.id !== oldList.id) return oldList;
         return newList;
       })
     );
