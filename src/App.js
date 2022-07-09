@@ -54,7 +54,7 @@ function App() {
             <li key={elemento.id}>
               <Elemento
                 elemento={elemento}
-                handleEdit={handleEdit}
+                edit={handleEdit}
                 handleDelete={() => handleDelete(elemento)}
               />
             </li>
