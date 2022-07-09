@@ -11,13 +11,13 @@ function App() {
   }
 
   let agregar = () => {
-    setList([...list, {title: text, value: true}])
+    setList([...list, {title: text, value: true, id: Math.random()}])
     setText("")
   }
 
-  let eliminar = (i) => {
-    setList(list.filter((_, j) =>{
-      return i != j
+  let eliminar = (elemento) => {
+    setList(list.filter((lista) =>{
+      return elemento.id !== lista.id
     }))
   }
 
@@ -32,17 +32,17 @@ function App() {
         value={text}
         onChange={actualizar}
         type="text" 
-        placeholder="Escriba aquí.." />
+        placeholder="Escriba aquí..." />
         <button onClick={agregar}>Añadir</button>
         <button onClick={reset}>Reset</button>
       </form>
       <ul>
-        {list.map((elemento, t) => {
+        {list.map((elemento) => {
           return (
-          <li key={t}>
+          <li key={elemento.id}>
             <input type='checkbox'/>
             {elemento.title}
-            <button onClick={() => eliminar(t)}>x</button>
+            <button onClick={() => eliminar(elemento)}>x</button>
           </li>
           )
         } )}

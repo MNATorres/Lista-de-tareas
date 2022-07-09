@@ -1,9 +1,12 @@
 .App {
   text-align: center;
-  margin-top: 200px;
+  margin: 50px;
+  
+
 }
 
 li {
   list-style: none;
+  display: flex;
   
 }
